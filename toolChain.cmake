@@ -1,0 +1,12 @@
+
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+
+set(toolChainDir "/home/maninblack/ti/ccs1040/ccs/tools/compiler/ti-cgt-msp430_20.2.5.LTS/bin/")
+
+set(CMAKE_C_COMPILER ${toolChainDir}/cl430)
+set(CMAKE_CXX_COMPILER ${CMAKE_C_COMPILER})
+set(CMAKE_ASM_COMPILER ${CMAKE_C_COMPILER})
+
+set(CMAKE_EXECUTABLE_SUFFIX_C .elf)
+set(CMAKE_EXECUTABLE_SUFFIX_CXX .elf)
+set(CMAKE_EXECUTABLE_SUFFIX_ASM .elf)
