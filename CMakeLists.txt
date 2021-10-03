@@ -30,9 +30,13 @@ target_link_options(powerManager PUBLIC
 --rom_model
 --ram_model
 )
+
 #${msp430Vendor}/lnk_msp430f2232.cmd
 #${toolChainDir}/lib/rts430_eabi.lib
 #${toolChainDir}/lib/libc.a
 target_link_libraries(powerManager ${CMAKE_CURRENT_LIST_DIR}/msp430f2232.cmd ${toolChainDir}/lib/rts430_eabi.lib)
 
-
+add_custom_command(TARGET powerManager
+                   POST_BUILD
+                   COMMAND ${toolChainDir}/bin/hex430 -memwidth=8 --romwidth=8 --diag_wrap=off --ti_txt -o "msp430CmakeDeneme.txt"  "powerManager.elf"
+                   VERBATIM)
